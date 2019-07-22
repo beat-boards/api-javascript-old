@@ -1,0 +1,24 @@
+{
+  "name": "beatboardsapiv1",
+  "version": "1.0.0",
+  "description": "Version 1 of the Beat Boards API!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AurosTV/BeatBoardsAPI.git"
+  },
+  "keywords": [
+    "beatsaber",
+    "api",
+    "leaderboard"
+  ],
+  "author": "Auros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AurosTV/BeatBoardsAPI/issues"
+  },
+  "homepage": "https://github.com/AurosTV/BeatBoardsAPI#readme"
+}
