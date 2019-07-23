@@ -14,20 +14,21 @@ dotenv.config()
 var mongoURL = `mongodb://${process.env.DBU}:${process.env.DBP}@${process.env.HOST}:${process.env.DBPORT}/${process.env.DBNAME}`
 
 mongoose
-    .connect(mongoURL, { useNewUrlParser: true })
-    .catch(err => {
-        console.log("Error connecting to database", err)
-    })
+.connect(mongoURL, { useNewUrlParser: true })
+.catch(err => {
+    console.log("Error connecting to database", err)
+})
+
+app.use(logger())
+app.use(filter())
+app.use(bodyparser())
+app.use(router.routes())
+app.use(router.allowedMethods())
 
 router.get('/test', api.getTest)
 router.get('/users', api.getUsers)
 router.get('/beatmap', api.getMaps)
+router.get('/lightmap', api.getLightMaps)
 router.get('/scores', api.getScores)
-
-app.use(logger())
-app.use(filter())
-app.use(router.routes())
-app.use(bodyparser())
-app.use(router.allowedMethods())
 
 app.listen(`${process.env.PORT}`)
