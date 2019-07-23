@@ -10,10 +10,6 @@ const app = new Koa()
 const router = new Router()
 
 dotenv.config()
-app.use(logger())
-app.use(filter())
-app.use(router.routes())
-app.use(bodyparser())
 
 var mongoURL = `mongodb://${process.env.DBU}:${process.env.DBP}@${process.env.HOST}:${process.env.DBPORT}/${process.env.DBNAME}`
 
@@ -28,6 +24,10 @@ router.get('/users', api.getUsers)
 router.get('/beatmap', api.getMaps)
 router.get('/scores', api.getScores)
 
+app.use(logger())
+app.use(filter())
+app.use(router.routes())
+app.use(bodyparser())
 app.use(router.allowedMethods())
 
 app.listen(`${process.env.PORT}`)

@@ -6,7 +6,14 @@ const Scores = require('../model/Scores')
 exports.getTest = async (ctx) => {
     ctx.set('Content-Type', 'application/json')
 
-    const testing = await Test.find({})
+    var query = {}
+
+    var value = ctx.request.query
+    var parsed = JSON.parse(JSON.stringify(value))
+
+    
+
+    const testing = await Test.find(parsed)
     if (!testing) {
         throw new Error("Error retriving API data")
     } else {
@@ -17,7 +24,10 @@ exports.getTest = async (ctx) => {
 exports.getUsers = async (ctx) => {
     ctx.set('Content-Type', 'application/json')
 
-    const data = await Users.find({})
+    var value = ctx.request.query
+    var parsed = JSON.parse(JSON.stringify(value))
+
+    const data = await Users.find(parsed)
     if (!data) {
         throw new Error("Error retriving API data")
     } else {
@@ -28,7 +38,10 @@ exports.getUsers = async (ctx) => {
 exports.getMaps = async (ctx) => {
     ctx.set('Content-Type', 'application/json')
 
-    const data = await Maps.find({})
+    var value = ctx.request.query
+    var parsed = JSON.parse(JSON.stringify(value))
+
+    const data = await Maps.find(parsed)
     if (!data) {
         throw new Error("Error retriving API data")
     } else {
@@ -39,7 +52,10 @@ exports.getMaps = async (ctx) => {
 exports.getScores = async (ctx) => {
     ctx.set('Content-Type', 'application/json')
 
-    const data = await Scores.find({})
+    var value = ctx.request.query
+    var parsed = JSON.parse(JSON.stringify(value))
+
+    const data = await Scores.find(parsed)
     if (!data) {
         throw new Error("Error retriving API data")
     } else {
