@@ -1,12 +1,17 @@
 const mongoose = require('mongoose')
 
 const Users = mongoose.Schema({
-    storeType: String,
-    userID: String,
+    platform: String,
+    platformID: String,
     rankpoints: Number,
     rank: Number,
     banned: Boolean,
-    fails: Number
+    fails: Number,
+    userData: {
+        nickname: String,
+        imageURL: String,
+        countryCode: String
+    }
 }, {collection: 'users'})
 
 module.exports = mongoose.model("Users", Users)

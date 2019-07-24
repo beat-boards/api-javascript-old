@@ -13,7 +13,9 @@ const Maps = mongoose.Schema({
     noteCount: Number,
     scoreCount: Number,
     maxRP: Number,
-    maxScore: Number
+    maxScore: Number,
+    upvotes: Number,
+    downvotes: Number
 }, {collection: 'maps'})
 
 module.exports = mongoose.model("Maps", Maps)

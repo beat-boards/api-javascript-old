@@ -6,9 +6,11 @@ const Scores = mongoose.Schema({
     activeModifiers: Array,
     adjustedScore: Number,
     rawrp: Number,
+    actualrp: Number,
     date: Date,
     userID: String,
-    maphash: String 
+    maphash: String,
+    userRating: Number
 }, {collection: 'scores'})
 
 module.exports = mongoose.model("Scores", Scores)

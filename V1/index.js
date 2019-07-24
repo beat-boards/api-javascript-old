@@ -6,8 +6,15 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const api = require('./controller/api')
 const filter = require('@koa/json-filter')
+const koaBody = require('koa-body')
+const jwt = require('./middlewares/jwt')
+
 const app = new Koa()
+app.use(koaBody())
+app.use(logger())
+app.use(filter())
 const router = new Router()
+
 
 dotenv.config()
 
@@ -19,16 +26,19 @@ mongoose
     console.log("Error connecting to database", err)
 })
 
-app.use(logger())
-app.use(filter())
-app.use(bodyparser())
-app.use(router.routes())
-app.use(router.allowedMethods())
-
 router.get('/test', api.getTest)
 router.get('/users', api.getUsers)
 router.get('/beatmap', api.getMaps)
-router.get('/lightmap', api.getLightMaps)
+router.get('/litemap', api.getLiteMaps)
 router.get('/scores', api.getScores)
+router.post('/scores', jwt.errorHandler(), jwt.jwt(), api.postScore)
+router.post('/users', jwt.errorHandler(), jwt.jwt(), api.postUser)
+router.post('/beatmap', jwt.errorHandler(), jwt.jwt(), api.postMap)
+router.put('/scores/', jwt.errorHandler(), jwt.jwt(), api.putScore)
+router.put('/users', jwt.errorHandler(), jwt.jwt(), api.putUser)
+router.put('/beatmap', jwt.errorHandler(), jwt.jwt(), api.putMap)
+
+app.use(router.routes())
+app.use(router.allowedMethods())
 
 app.listen(`${process.env.PORT}`)
