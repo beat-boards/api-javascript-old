@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AurosTV/BeatBoardsAPI.git"
+    "url": "git+https://github.com/beat-boards/BeatBoardsAPI.git"
   },
   "keywords": [
     "beatsaber",
@@ -19,9 +19,9 @@
   "author": "Auros",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AurosTV/BeatBoardsAPI/issues"
+    "url": "https://github.com/beat-boards/BeatBoardsAPI/issues"
   },
-  "homepage": "https://github.com/AurosTV/BeatBoardsAPI#readme",
+  "homepage": "https://github.com/beat-boards/BeatBoardsAPI#readme",
   "dependencies": {
     "@koa/json-filter": "^1.0.0",
     "api-query-params": "^4.13.0",
