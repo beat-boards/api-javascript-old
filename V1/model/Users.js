@@ -7,6 +7,7 @@ const Users = mongoose.Schema({
     rank: Number,
     banned: Boolean,
     fails: Number,
+    role: String,
     userData: {
         nickname: String,
         imageURL: String,
