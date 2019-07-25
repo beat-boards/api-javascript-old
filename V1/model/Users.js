@@ -12,7 +12,8 @@ const Users = mongoose.Schema({
         nickname: String,
         imageURL: String,
         countryCode: String
-    }
+    },
+    friends: Array
 }, {collection: 'users'})
 
 module.exports = mongoose.model("Users", Users)
