@@ -8,11 +8,13 @@ const api = require('./controller/api')
 const filter = require('@koa/json-filter')
 const koaBody = require('koa-body')
 const jwt = require('./middlewares/jwt')
+const favicon = require('koa-favicon')
 
 const app = new Koa()
 app.use(koaBody())
 app.use(logger())
 app.use(filter())
+app.use(favicon(__dirname + '/public/favicon.ico'))
 const router = new Router()
 
 
