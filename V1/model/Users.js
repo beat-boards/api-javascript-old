@@ -10,7 +10,7 @@ const Users = mongoose.Schema({
     role: String,
     userData: {
         nickname: String,
-        imageURL: String,
+        image: String,
         countryCode: String
     },
     friends: Array
