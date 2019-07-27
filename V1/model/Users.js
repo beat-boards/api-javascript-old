@@ -13,7 +13,7 @@ const Users = mongoose.Schema({
         image: String,
         countryCode: String
     },
-    friends: Array
+    following: Array
 }, {collection: 'users'})
 
 module.exports = mongoose.model("Users", Users)
