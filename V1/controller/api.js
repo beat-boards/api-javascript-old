@@ -96,6 +96,7 @@ exports.postUser = async (ctx) => {
     } catch (error) {
         ctx.body = {"error":error}
     }
+    rankUsersOperation()
 }
 
 exports.postMap = async (ctx) => {
@@ -116,6 +117,7 @@ exports.putScore = async (ctx) => {
 exports.putUser = async (ctx) => {
     var model = await Users.findOneAndUpdate(ctx.request.body.find, ctx.request.body.update, {"useFindAndModify":false})
     ctx.body = model
+    rankUsersOperation()
 }
 
 exports.putMap = async (ctx) => {
