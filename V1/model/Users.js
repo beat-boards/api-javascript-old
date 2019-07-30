@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const Users = mongoose.Schema({
     platform: String,
     platformID: String,
+    beatboardsID: String,
     rankpoints: Number,
     rank: Number,
     banned: Boolean,
